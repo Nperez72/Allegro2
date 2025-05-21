@@ -61,6 +61,7 @@ int main() {
 * All conditional logic for key events are handled here to make game loop cleaner.
 */
 void handle_movement_keys(ALLEGRO_EVENT event, float &x, float &y) {
+	// Circle will move 5 pixels per key press
 	float move_amount = 5.0f;
 	if (event.type == ALLEGRO_EVENT_KEY_DOWN) {
 		switch (event.keyboard.keycode) {
@@ -75,6 +76,26 @@ void handle_movement_keys(ALLEGRO_EVENT event, float &x, float &y) {
 				break;
 			case ALLEGRO_KEY_RIGHT:
 				x += move_amount;
+				break;
+			case ALLEGRO_KEY_U:
+				// Move left but up as well 
+				x -= move_amount;
+				y -= move_amount;
+				break;
+			case ALLEGRO_KEY_D:
+				// Move right but down as well
+				x += move_amount;
+				y += move_amount;
+				break;
+			case ALLEGRO_KEY_R:
+				// Move right but up as well
+				x += move_amount;
+				y -= move_amount;
+				break;
+			case ALLEGRO_KEY_L:
+				// Move left but down as well
+				x -= move_amount;
+				y += move_amount;
 				break;
 		}
 	}
